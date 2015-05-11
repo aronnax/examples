@@ -5,16 +5,12 @@
   "main": "dist/ping.js",
   "scripts": {
     "clean": "rm -r dist/*",
-    "compile": "babel src/ -s inline -m common -d dist/",
-    "bundle": "browserify src/pooled.js -t babelify -o dist/index.js",
-    "compile-bundle": "browserify src/main.js -t babelify -t uglifyify -o dist/main.min.js",
-    "compile-all": "npm run compile && npm run compile-bundle",
+    "bundle": "npm run clean && browserify src/main.js -t babelify -o dist/main.js",
+    "compile": "npm run clean && browserify src/main.js -t babelify -t uglifyify -o dist/main.min.js",
     "lint": "eslint src/*.js",
     "test": "npm run unit-test && npm run integration-test",
     "unit-test": "testem ci -f test/unit_testem.json -l phantomjs",
-    "integration-test": "testem ci -f test/integration_testem.json -l phantomjs",
-    "watch-unit-test": "testem -f test/unit_testem.json",
-    "watch-integration-test": "testem -f test/integration_testem.json"
+    "watch-bundle": "watch-run -p './src/*.js' npm run bundle"
   },
   "keywords": [
     "gaming",
@@ -34,6 +30,8 @@
     "phantomjs": "^1.9.16",
     "sinon": "^1.14.1",
     "tape": "^4.0.0",
-    "uglifyify": "^3.0.1"
+    "uglifyify": "^3.0.1",
+    "watch-run": "^1.2.2",
+    "watchify": "^3.2.1"
   }
 }
