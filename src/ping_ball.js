@@ -39,6 +39,25 @@ var htmlRendrr = {
   }
 };
 
+var Bounded = {
+  boundX: 0,
+  boundY: 0,
+  update() {
+    if (this.x >= this.boundX) {
+      this.emit('bounds:hit', {
+        axis: 'x',
+        side: 'r'
+      });
+    }
+    if (this.x <= 0) {
+      this.emit('bounds:hit', {
+        axis: 'x',
+        side: 'l'
+      });
+    }
+  }
+};
+
 
 var Entity = Object.create(Pooled, wrapProto({
 
@@ -93,6 +112,7 @@ var main = function(window) {
 
   let ball = EntityFactory({w: 10, h: 10, renderer: rendrr});
   ball.x = 20;
+  // TODO this is wrong, when its an object, its changing the proto
   ball.velocity.x = 5;
 
   loop.onConstantly(dt => {

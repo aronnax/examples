@@ -1,2 +1,2 @@
 
-import './ping_ball';
+import './ping';

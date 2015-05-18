@@ -19,8 +19,6 @@
   "author": "Marco Segreto <msegreto@miceover.com>",
   "license": "MIT",
   "devDependencies": {
-    "aronnax-looping": "0.0.3",
-    "aronnax-pooling": "^0.5.6",
     "babel": "^5.1.13",
     "babel-eslint": "^3.0.1",
     "babelify": "^6.0.2",
@@ -33,5 +31,9 @@
     "uglifyify": "^3.0.1",
     "watch-run": "^1.2.2",
     "watchify": "^3.2.1"
+  },
+  "dependencies": {
+    "aronnax-inheritance": "^0.1.1",
+    "aronnax-looping": "0.1.0"
   }
 }
