@@ -5,7 +5,7 @@
   "main": "dist/ping.js",
   "scripts": {
     "clean": "rm -r dist/*",
-    "bundle": "npm run clean && browserify src/main.js -t babelify -o dist/main.js",
+    "bundle": "browserify src/main.js -t babelify -o dist/main.js",
     "compile": "npm run clean && browserify src/main.js -t babelify -t uglifyify -o dist/main.min.js",
     "lint": "eslint src/*.js",
     "test": "npm run unit-test && npm run integration-test",
